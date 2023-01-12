@@ -1,0 +1,186 @@
+html{
+    background-color:#eee;
+}
+body{
+    margin: 10px auto;
+    padding: 10px 20px;
+    max-width: 1000px;
+    font-family : Calibri, Arial, "sans serif";
+    background-color: white;
+    border: 1px solid lightgray;
+    
+}
+h1 {
+    display:inline;
+}
+
+nav{
+    display:inline;
+    margin-left:200px;
+}
+
+nav a{
+    float:right;
+    margin-left:30px;
+    background-color:#cec;
+    padding:5px;
+    color:black;
+    text-decoration:none;
+    text-transform: uppercase;
+}
+
+nav a:hover{
+    text-decoration:underline;
+}
+button.category{
+    padding: 3px 8px;    
+    font-size:90%;
+    color:black;
+    background-color:#fff;
+    border : 2px solid #bea;
+    margin-right:5px;
+    transition : all 0.2s;
+}
+
+button.category:hover{
+    background-color:#eef8ee;
+}
+
+button.category:active{
+    background-color:#cec;
+}
+
+button.mode_actif{
+    border : 2px solid #080;
+    background-color:#f8f8f6;
+}
+
+
+
+/* * * TABLEAUX * * */
+
+table{
+    border-collapse:separate;
+    position:relative;
+    margin:10px auto;
+    max-width:500px;
+    padding:5px;
+    border: 2px solid #080;
+}
+
+tr{
+    line-height:1;
+    transition : all .2s;
+}
+
+tr.hidden{
+    display:none;
+}
+table td{
+    
+}
+
+table input{
+    width:50px;
+}
+
+#scores{
+    margin:auto;
+    width:250px;
+    margin-bottom:20px;
+}
+#scores input{
+    width:30px;
+}
+.reset{
+	display : none;	
+	position:relative;
+    bottom:100px;    
+    left:50px;
+        
+}
+.info{
+    background-image:url("../img/i.png");
+    opacity:.7;
+    width:20px;
+    height:20px;
+	margin-left:10px;
+    margin-right:10px;
+    display:inline-block;
+    transition:opacity .2s;
+}
+.info:hover{
+    opacity:1;
+}
+
+.instruction{
+    position:absolute;
+}
+
+hr {
+    height:0px;
+    border-top:1px solid #66cc66;
+}
+
+/* * * POINTS * * */
+.points{
+    border:none;
+    text-align:center;
+    color:black;
+    background:none;
+    font:bold 85% Calibri, Arial, "sans serif";
+}
+.negative{
+    color:#f00;
+}
+.positive{
+    color:#0a0;
+}
+
+#nutri-score{
+    border:none;
+    text-align:center;
+    font-size:150%;
+    color:black;
+    background:none;
+	padding-bottom : 0;
+}
+
+#canvas-wrap{
+    position:relative;
+    margin:auto;
+    width:400px;
+}
+#aiguille{
+    position:absolute;
+    left:190px; top:-46px;
+    transform: rotate(-1.58rad) scale(0.6);
+    transition:transform .5s ;
+    transform-origin: 10px 233px;
+}
+.question{
+    display:inline-block;
+    margin-top:5px;
+    padding:5px;
+    background-color:#080;
+    font-size:110%;
+    color:white;    
+    text-decoration:none;
+    cursor:pointer;
+	width: 100%;
+}
+.reponse-cachee{
+    display: block;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+	overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s; 
+}
+
+.reponse-visible{
+    max-height: 350px;
+    opacity: 1;
+	overflow: hidden;
+    transition: max-height 0.5s ease-in-out, opacity 0.6s;
+}

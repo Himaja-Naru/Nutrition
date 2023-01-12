@@ -1,0 +1,97 @@
+<html>
+<head>
+    <title>Calculateur Nutri-Score</title>
+    <meta charset="UTF-8"> 
+    <meta name="description" content="Fair questions about Calculate Nutri-Score">
+    <meta name="keywords" content="Nutriscore,Nutrition,Alimentation,Calculateur,FAQ">
+    <meta name="author" content="Lucky">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="js/nutriscore.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/nutriscore.css">
+</head>
+<body onload="load_faq()">
+<h1>Calculateur Nutri-Score</h1>
+<nav>
+    <a href="a_propos.html">propos</a>
+    <a href="NUTRI.html">Calculate</a>
+</nav>
+<h2>Fair with question</h2>
+
+<div class="question" id="nutriscore" onclick="deplier(event)">• What is Nutri-Score ?</div>
+<div class="reponse-cachee">
+<p>It is a rating that provides information on the overall nutritional quality of a food product. Its purpose is to help consumers choose healthy foods for their he
+<p>It is based on the work of the team of Professor Serge Hercberg (University of Paris 13), the expertise of the Anses and the High Council of Public Health. You can find more details on the website <a href="https://www.santepubliquefrance.fr/Sante-publique-France/Nutri-Score">santepubliquefrance.fr</a>.</p>
+</div>
+
+<div class="question" onclick="deplier(event)">•How is it calculated ?</div>
+<div class="reponse-cachee"></div>
+<p>The calculation method is based on assigning points according to the value of each nutrient considered "to be avoided" or "to be favored". The values used as a basis are those indicated in the "mandatory nutrition declaration," often present in the form of a table on the back of the product.</p><p>The elements to be avoided are those whose points are indicated in red in the table: caloric intake, saturated fatty acids, sugars, and sodium (calculated from salt). Items to favor are indicated in green: fiber, protein, and fruit, vegetable, and nut content.Translated with www.DeepL.com/Translator (free version)</p>
+<p>The general rule is to then subtract these two subtotals of points (negative points - positive points), resulting in a nutritional score, the lower the better. A grade from A to E is then determined based on this score, with A being the best, and E being the worst.</p>
+<p>The exact calculation is a bit more complex and depends on the food category. You can find explanations and the exact calculation formula in the appendix of his <a href="https://www.santepubliquefrance.fr/media/files/02-determinants-de-sante/nutrition-et-activite-physique/nutri-score/reglement-usage">rules of use.</a></p>
+</div>
+
+<div class="question" onclick="deplier(event)">• What is the purpose of this calculator?</div>
+<div class="reponse-cachee">
+<p>The Nutri-Score, present on the packaging of certain food products, is beginning to be widespread in supermarkets but is not mandatory, and is subject to the goodwill of the brands to display it. Moreover, even when displayed, it is difficult for the consumer to understand where the score comes from, as it may seem arbitrary.<p>
+<p>This calculator comes first of all from the will to explain its calculation, in order to improve the understanding of the logo.</p>
+<p>The second goal is to be able to calculate it for products that do not display it. You can take any food item that has Nutri-Score information displayed and calculate its score yourself.</p>
+</div>
+
+<div class="question" onclick="deplier(event)">•Why does the result differ by category?</div>
+<div class="reponse-cachee">
+<p>All foods are far from being similar to each other, and it is necessary to take into account certain particularities. Most foods will fit into the "general" category, for others the calculation is a little different.</p>
+<p>For example, since butter or oil are mostly made up of fat, their saturated fatty acid content is generally high and judging them according to the same formula as other foods would not allow them to be differentiated effectively. Instead of the quantity of saturated fatty acids alone, it is for example the ratio of saturated fatty acids to lipids that is taken into account.</p>
+<p>The same applies to beverages, which should be sanctioned more severely than solid foods for sugars and energy value.</p>
+</div>
+
+<div class="question" id="categorie" onclick="deplier(event)">• How to choose the category?</div>
+<div class="reponse-cachee"></div>
+<p>For most foods, the "<strong>general case</strong>" category should be chosen. Ex: ready meals, desserts, cereals, cookies, sauces, dairy (excluding cheese)...</p>
+<p>•The "<strong>fats</strong>" category refers to fats sold as finished products. Ex: butters, margarines, vegetable oils and creams.</p>
+<p>• The "<strong>cheese</strong>" category corresponds to cheeses, processed cheeses, and cheese specialties. Cottage cheeses are not included and fall into the general case.</p>
+<p>• The "<strong>drinks</strong>" category is for non-alcoholic beverages, excluding water which has its own category. Ex: sodas including "light", fruit juices, nectars, smoothies, sweetened waters, coffee or tea reconstituted with water...<br/>
+<i>Milks, yoghurts to drink, milk drinks, or reconstituted with a liquid other than water are included in the general case and not in the drinks.</i><br />
+The best grade for this category is B.</p>
+<p>•The "<strong>water</strong>" category is to be chosen for mineral or spring water, still or unsweetened. Water is in fact the only drink to be totally recommended, and to obtain an A.</p>
+<p>Some food categories are not concerned by the Nutri-Score: raw foods (fresh fruits and vegetables, cut meats, honey), infant foods for children aged 0 to 3 years.</p>
+</div>
+
+<div class="question" id="fruits" onclick="deplier(event)">• How to fill the percentage of fruits, vegetables and nuts?</div>
+<div class="reponse-cachee"><p>Calculate the total ingredients representing fruits, vegetables, or nuts in the ingredient lists.<br />
+    For example, if the list says "Water, zucchini (30%), tomatoes (20%)", then the total is 30% + 20% = 50%.</p>
+<p>There is an exception for tomato concentrates and dried or semi-hydrated fruits, which must count double (including triple concentrates). In order to calculate the percentage, it is necessary to multiply their quantity "q" by two, while adding this quantity q to the denominator, i.e. divide the whole by 100 + q.</p>
+<p>Thus, for a list with 20% apple and 15% raisins, the calculation is as follows<br />(20 + (2×15)) / (100 + 15)<br />= 50/115<br />= 43,5 %,compared to 35% if this factor was not applied.
+
+</p>
+</div>
+
+<div class="question" onclick="deplier(event)">• What is considered "fruits, vegetables and nuts" for the calculation?</div>
+<div class="reponse-cachee">
+<p>This name actually represents all fruits, vegetables, legumes and nuts.</p>
+<ul>
+    <li>Examples of vegetables: spinach, salad, cabbage, celery, artichoke, onion, garlic, carrot, cucumber, gherkin, mushroom, seaweed...</li>
+    <li>Examples of legumes: peas, beans, lentils, soybeans, beans...</li>
+    <li>Examples of fruits: apple, pear, orange, berries, grapes, banana, tomato...</li>
+    <li>Examples of nuts: walnut, hazelnut, pistachio, almond, coconut, peanut...</li>
+</ul>
+<p>Attention: Tuberous plants (potato, yam, manioc...) do not count.</p>
+
+<p>All of these fruits and vegetables, to count in the calculation, must be raw or minimally processed, including cooked or dried, peeled, sliced, pureed, pulped, 100% fruit juice from concentrate or freshly squeezed fruit juice. Sugars from concentrated fruit juices or powders do not count in the calculation.</p>
+
+For pure fruit juices or 100% juice from concentrate for example, the amount will be 100%. Nectars, on the other hand, contain water and sugar, so the quantity of fruit will be less than 100%.
+
+<p>For dried fruits, the quantity must be calculated using a factor as explained in the<a href="faq.html#fruits">section above</a>.<p>
+</div>
+
+<div class="question" onclick="deplier(event)">• Should you only eat A-rated products?</div>
+<div class="reponse-cachee">
+<p>The Nutri-score is only an indication of the nutritional intake of a product, and is obviously not the only factor to take into account. If it is good to regularly favor the Nutriscore A and B for example, A product rated E from time to time will not kill you, think above all to have a varied and balanced diet (and to exercise regularly ☺)!</p>
+</div>
+
+<div class="question" onclick="deplier(event)">• I found an error in the calculations, how do I report it?</div>
+<div class="reponse-cachee">
+<p>You can report any errors, or suggest changes in the <a href="https://github.com/simonetthomas/CalculateurNutriscore/issues">Issues section of the project's github page</a>.</p>
+</div>
+</body>
+
+</html>

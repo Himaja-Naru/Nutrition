@@ -1,0 +1,122 @@
+<html>
+<head>
+    <title>Calculate Nutri-Score</title>
+    <meta charset="UTF-8"> 
+    <meta name="description" content="Calculate the Nutri-Score of a food product from its nutritional information">
+    <meta name="keywords" content="Nutriscore,Nutrition,Food,Calculate">
+    <meta name="author" content="Lucky">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="js/nutriscore.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/nutriscore.css">
+</head>
+<body>
+<h1>Calculate Nutri-Score</h1>
+
+<nav>
+    <a href="a_propos.html">About us</a>
+    <a href="faq.html">FAQ</a>
+</nav>
+
+<p>Calculate the Nutri-Score of a food product by entering its nutritional values per 100 g (or 100 ml). You will usually find this information in table form on the product packaging.</p>
+
+1 - Choose a category :
+<button id="general_button" class="category mode_actif" onclick="general_button()">General case</button>
+<button id="button_fat_materials" class="category" onclick="button_fat_materials()">fat</button>
+<button id="cheese_button" class="category" onclick="cheese_button()">cheese</button>
+<button id="beverage_button" class="category" onclick="beverage_button()">beverages <small>(excluding the water)</small></button>
+<button id="water_button" class="category" onclick="water_button()">water</button>
+<a href="faq.html#category"><span class="info"></span>Which category to choose ?</a>
+<hr />
+<div class="instruction">2 - Fill in the values</div>
+<table>
+    <thead>
+        <tr>
+            <th>Nutritional information</th>
+            <th>Quantity</th>
+            <th>Points</th>
+        </tr>
+    </thead>
+    <tr id="group_energy" class="group">
+        <td><label for="energy">Energy</label></td>
+        <td width="90px"><input type="text" id="energy" placeholder="0" onkeyup="calcul_energy()"/> kJ</td>
+        <td width="60px"><input type="text" id="energy_points" value="0" class="points negative" disabled /></td>
+	</tr>
+    <tr class="group hidden" id="group_fat">
+        <td><label for="">fat</label></td>
+        <td><input type="text" id="fat" placeholder="0" onkeyup="calcul_fat()" /> g</td>
+    </tr>
+    <tr id="group_fat_acids_saturated" class="group">
+        <td><label for="fat_acids_saturated">fatacidssaturated</label></td>
+        <td><input type="text" id="fat_acids_saturated" placeholder="0" onkeyup="calcul_fat_acids_saturated()" /> g</td>
+        <td><input type="text" id="fat_acids_saturated_points" value="0" class="points negative" disabled /></td>
+    </tr>
+    <tr id="group_ratio_fat_acids_saturated" class="group hidden">
+        <td><label for="ratio_fat_acids_saturated">Ratio fat_acids_saturated/ mat. fat</label></td>
+        <td><input type="text" id="ratio_fat_acids_saturated" placeholder="0" disabled /> %</td>
+        <td><input type="text" id="ratio_fat_acids_saturated_points" value="0" class="points negative" disabled /></td>
+    </tr>
+    <tr id="group_sugar" class="group">
+        <td><label for="sugar">Sugar</label></td>
+        <td><input type="text" id="sugar" placeholder="0" onkeyup="calcul_sugar()" /> g</td>
+        <td><input type="text" id="sugar_points" value="0" class="points negative" disabled /></td>
+	</tr>
+    <tr id="group_fibres" class="group">
+        <td><label for="fibres">Fibres</label></td>
+        <td><input type="text" id="fibres" placeholder="0" onkeyup="calcul_fibres()"/> g</td>
+        <td><input type="text" id="fibres_points" value="0" class="points positive" disabled /></td>
+	</tr>
+    <tr id="group_proteins" class="group">
+        <td><label for="proteins">Proteins</label></td>
+        <td><input type="text" id="proteins" placeholder="0" onkeyup="calcul_proteins()" /> g</td>
+        <td><input type="text" id="proteins_points" value="0" class="points positive" disabled /></td>
+	</tr>
+    <tr id="group_salt" class="group">
+        <td><label for="salt">Salt</label></td>
+        <td><input type="text" id="salt" placeholder="0" onkeyup="calc_salt()" /> g</td>
+    </tr>
+    <tr id="group_sodium" class="group">
+        <td><label for="sodium">Sodium</label></td>
+        <td><input type="text" id="sodium" placeholder="0" onkeyup="calc_sodium()" /> mg</td>
+        <td><input type="text" id="sodium_points" value="0" class="points negative" disabled /></td>
+    </tr>
+    <tr id="group_fruits" class="group">
+        <td><label for="fruits">Fruits, vegetables and nuts</label><a href="faq.html#category" class="info"></a></td>
+        <td><input type="text" id="fruits" placeholder="0" onkeyup="calcul_fruits()"/> %</td>
+        <td><input type="text" id="fruits_points" value="0" class="points positive" disabled /></td>
+    </tr>
+</table>
+<button onclick="reset()" class="reset">Reset</button>
+<hr />
+<div class="instruction">3 -Obtain the score</div>
+<table id="scores">
+<tr>
+    <td>Total points negative :</td>
+    <td><input type="text" id="points_negatived" value="0" class="points negative" disabled /></td>
+</tr>
+<tr>
+    <td>Total points positive : </td>
+    <td><input type="text" id="points_positive" value="0" class="points positive" disabled /></td>
+</tr>
+<tr>
+    <td>Score nutritional : </td>
+    <td><input type="text" id="score_nutritional" class="points" value="-" disabled /></td>
+</tr>
+<tr>
+    <td>Nutriscore : </td>
+    <td><input type="text" id="nutri-score" value="-" disabled /></td>
+</tr>
+</table>
+
+<div id="canvas-wrap">
+    <canvas id="canvas" width="400" height="200">Your browser is unable to display the <code>canvas</code>. Please use a valid browser.</canvas>
+    <img src="\C:\Users\NARU HIMAJA\Desktop\aiguille.png" id="aiguille">
+</div>
+
+<p>According to the formula developed by the team of Dr. Serge Hercberg. <a href="faq.html#nutriscore">Learn more about the Nutri-Score</a>. <br />
+    Please note: the Nutri-Score calculated here is for information purposes only. This site is for educational purposes.<br />
+    The Nutri-Score is also available on <a href="https://fr.openfoodfacts.org/">Open Food Facts</a>,free database of over 300,000 products.</p>
+
+<footer></footer>
+
+</body>
+</html>
